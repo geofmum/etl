@@ -5,6 +5,8 @@ import edu.mum.base.read.DataReader;
 import edu.mum.base.transform.TransformComponent;
 import edu.mum.base.write.DataWriter;
 
+import java.util.List;
+
 public abstract class AbstractJob {
     protected DataReader reader;
     protected DataWriter writer;
@@ -37,8 +39,9 @@ public abstract class AbstractJob {
     public void beforeRead() {
     }
 
-    public void read() {
+    public List<Record> read() {
         reader.open();
+//        List<Record> records = reader.read();
     }
 
     public void afterRead() {
