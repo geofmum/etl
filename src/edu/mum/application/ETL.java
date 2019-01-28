@@ -13,7 +13,6 @@ import edu.mum.base.write.adapters.JSONWriteAdapter;
 public class ETL {
     public static void main(String[] args){
         Pipeline pipeline = Pipeline.getInstance();
-
         csvJob(pipeline);
 
         Pipeline.getInstance().start();
