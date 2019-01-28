@@ -1,6 +1,7 @@
 package edu.mum.base.write.adapters;
 
 import edu.mum.base.Record;
+import edu.mum.base.field.IField;
 import edu.mum.base.write.WriterAdapter;
 
 import java.io.File;
@@ -70,14 +71,16 @@ public class JSONWriteAdapter implements WriterAdapter {
 
             output.append("{");
 
-            record.getFields().forEach(field -> {
-                // determine whether we should add a separator "," i.e if last character is not equal to "}"
-                if (output.lastIndexOf("}") != output.length() - 1) {
+            List<IField> fields = record.getFields();
+            for (int j = 0; j < fields.size(); j++) {
+                if (j > 0)
                     output.append(",");
-                }
+
+                IField field = fields.get(j);
                 output.append(quoteEntity(field.getName()))
+                        .append(":")
                         .append(quoteEntity(field.getValue()));
-            });
+            }
 
             output.append("}");
         });
