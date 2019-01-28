@@ -13,4 +13,16 @@ public class Record {
     public List<Field> getFields() {
         return fields;
     }
+
+    public Field getField(String name) {
+        return fields.stream()
+            .filter(field -> name.equals(field.getName()))
+            .findFirst()
+            .orElse(null);
+    }
+
+    public boolean hasField(String name){
+        return fields.stream()
+                .anyMatch(field -> name.equals(field.getName()));
+    }
 }

@@ -4,10 +4,10 @@ import edu.mum.base.Record;
 
 import java.util.List;
 
-public class TransformerDecorator implements TransformComponent{
+public class TransformDecorator implements TransformComponent{
     protected TransformComponent transformer;
 
-    public TransformerDecorator(TransformComponent transformer){
+    public TransformDecorator(TransformComponent transformer){
         this.transformer = transformer;
     }
 

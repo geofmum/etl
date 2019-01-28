@@ -11,6 +11,18 @@ public class Field {
         this.name = name;
     }
 
+    public void setType(FieldType type) {
+        this.type = type;
+    }
+
+    public void setValue(Object value) {
+        this.value = value;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public FieldType getType() {
         return type;
     }
