@@ -18,4 +18,14 @@ public class IntegerField implements IField {
     public String getName() {
         return name;
     }
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public void setValue(Object value) {
+        this.value = Integer.parseInt(value.toString());
+    }
 }

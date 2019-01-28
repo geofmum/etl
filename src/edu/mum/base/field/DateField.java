@@ -20,4 +20,15 @@ public class DateField implements IField {
     public String getName() {
         return name;
     }
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public void setValue(Object value) {
+        // @todo figure out how to handle date parsing
+        // this.value = Date.from();
+    }
 }

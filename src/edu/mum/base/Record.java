@@ -16,7 +16,7 @@ public class Record {
         return fields;
     }
 
-    public Field getField(String name) {
+    public IField getField(String name) {
         return fields.stream()
             .filter(field -> name.equals(field.getName()))
             .findFirst()
