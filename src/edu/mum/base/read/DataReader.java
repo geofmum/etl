@@ -19,7 +19,7 @@ public class DataReader {
         reader.close();
     }
 
-    public Record read(){
+    public List<Record> read(){
         return reader.read();
     }
 

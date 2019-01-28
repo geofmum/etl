@@ -7,6 +7,5 @@ import java.util.List;
 public interface ReaderAdapter {
     public void open();
     public void close();
-    public Record read();
-    public List<Record> readList();
+    public List<Record> read();
 }
