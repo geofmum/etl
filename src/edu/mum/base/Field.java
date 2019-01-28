@@ -1,18 +1,12 @@
 package edu.mum.base;
 
 public class Field {
-    private FieldType type;
     private Object value;
     private String name;
 
-    public Field(FieldType type, Object value, String name) {
-        this.type = type;
+    public Field(Object value, String name) {
         this.value = value;
         this.name = name;
-    }
-
-    public void setType(FieldType type) {
-        this.type = type;
     }
 
     public void setValue(Object value) {
@@ -23,9 +17,6 @@ public class Field {
         this.name = name;
     }
 
-    public FieldType getType() {
-        return type;
-    }
 
     public Object getValue() {
         return value;
