@@ -1,9 +1,9 @@
-package edu.mum.framework.base.job;
+package edu.mum.base.job;
 
-import edu.mum.framework.base.Record;
-import edu.mum.framework.base.read.DataReader;
-import edu.mum.framework.base.transform.TransformComponent;
-import edu.mum.framework.base.write.DataWriter;
+import edu.mum.base.Record;
+import edu.mum.base.read.DataReader;
+import edu.mum.base.transform.TransformComponent;
+import edu.mum.base.write.DataWriter;
 
 public abstract class AbstractJob {
     protected DataReader reader;

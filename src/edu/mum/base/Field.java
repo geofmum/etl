@@ -1,4 +1,4 @@
-package edu.mum.framework.base;
+package edu.mum.base;
 
 public class Field {
     private FieldType type;

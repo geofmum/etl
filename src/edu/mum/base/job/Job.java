@@ -1,4 +1,4 @@
-package edu.mum.framework.base.job;
+package edu.mum.base.job;
 
 public class Job extends AbstractJob {
 

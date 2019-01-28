@@ -1,6 +1,6 @@
-package edu.mum.framework.base.write;
+package edu.mum.base.write;
 
-import edu.mum.framework.base.Record;
+import edu.mum.base.Record;
 
 import java.util.List;
 
