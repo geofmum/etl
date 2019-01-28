@@ -1,13 +1,20 @@
 package edu.mum;
 
+import edu.mum.base.job.Job;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Pipeline {
     public static Pipeline instance;
+    private List<Job> jobs = new ArrayList<>();
 
-    private Pipeline() {}
+    private Pipeline() {
+    }
 
-    public static Pipeline getInstance(){
+    public static Pipeline getInstance() {
         synchronized (Pipeline.class) {
-            if(instance == null){
+            if (instance == null) {
                 instance = new Pipeline();
             }
         }
@@ -15,5 +22,12 @@ public class Pipeline {
         return instance;
     }
 
-    public final void start(){}
+    public void start() {
+        jobs.forEach(job -> job.run());
+    }
+
+    public Pipeline addJob(Job job) {
+        jobs.add(job);
+        return this;
+    }
 }
