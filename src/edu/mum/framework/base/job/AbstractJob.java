@@ -10,6 +10,30 @@ public abstract class AbstractJob {
     protected DataWriter writer;
     protected TransformComponent transformer;
 
+    public DataReader getReader() {
+        return reader;
+    }
+
+    public void setReader(DataReader reader) {
+        this.reader = reader;
+    }
+
+    public DataWriter getWriter() {
+        return writer;
+    }
+
+    public void setWriter(DataWriter writer) {
+        this.writer = writer;
+    }
+
+    public TransformComponent getTransformer() {
+        return transformer;
+    }
+
+    public void setTransformer(TransformComponent transformer) {
+        this.transformer = transformer;
+    }
+
     public void beforeRead() {
     }
 
@@ -45,12 +69,12 @@ public abstract class AbstractJob {
         read();
         afterRead();
 
-        beforeWrite();
-        write();
-        afterWrite();
-
         beforeTransform();
         transform();
         afterTransform();
+
+        beforeWrite();
+        write();
+        afterWrite();
     }
 }

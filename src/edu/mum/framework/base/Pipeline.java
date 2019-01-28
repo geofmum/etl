@@ -15,9 +15,5 @@ public class Pipeline {
         return instance;
     }
 
-    public void onRead(){}
-    public void onWrite(){}
-    public void onTransform(){}
-
-    public final void run(){}
+    public final void start(){}
 }
