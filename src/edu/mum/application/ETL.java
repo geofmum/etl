@@ -7,8 +7,11 @@ import edu.mum.base.read.DataReader;
 import edu.mum.base.transform.RenameFieldDecorator;
 import edu.mum.base.transform.TransformComponent;
 import edu.mum.base.transform.Transformer;
+import edu.mum.base.transform.computedfield.ComputedFieldDecorator;
 import edu.mum.base.write.DataWriter;
 import edu.mum.base.write.adapters.JSONWriteAdapter;
+
+import java.util.ArrayList;
 
 public class ETL {
     public static void main(String[] args){
@@ -24,6 +27,9 @@ public class ETL {
         TransformComponent transformer = new RenameFieldDecorator(new Transformer())
                 .rename("Year", "decade");
 
-        pipeline.addJob(new Job(reader,writer,transformer));
+        TransformComponent computedFieldDecorator = new ComputedFieldDecorator(transformer)
+                .addComputedField("Computed", new ArrayList<String>() {{add("Year"); add("Flood");} });
+
+        pipeline.addJob(new Job(reader, writer, computedFieldDecorator));
     }
 }
