@@ -1,4 +1,4 @@
-package edu.mum.base;
+package edu.mum;
 
 public class Pipeline {
     public static Pipeline instance;
