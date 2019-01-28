@@ -12,6 +12,12 @@ public abstract class AbstractJob {
     protected DataWriter writer;
     protected TransformComponent transformer;
 
+    public AbstractJob(DataReader reader, DataWriter writer, TransformComponent transformer) {
+        this.reader = reader;
+        this.writer = writer;
+        this.transformer = transformer;
+    }
+
     public DataReader getReader() {
         return reader;
     }
@@ -41,7 +47,10 @@ public abstract class AbstractJob {
 
     public List<Record> read() {
         reader.open();
-//        List<Record> records = reader.read();
+        List<Record> records = reader.read();
+        reader.close();
+
+        return records;
     }
 
     public void afterRead() {
@@ -50,8 +59,10 @@ public abstract class AbstractJob {
     public void beforeWrite() {
     }
 
-    public void write(Record record) {
-        writer.write(record);
+    public void write(List<Record> records) {
+        writer.open();
+        writer.write(records);
+        writer.close();
     }
 
     public void afterWrite() {
@@ -60,8 +71,8 @@ public abstract class AbstractJob {
     public void beforeTransform() {
     }
 
-    public void transform() {
-        transformer.transform();
+    public List<Record> transform(List<Record> records) {
+        return transformer.transform(records);
     }
 
     public void afterTransform() {
@@ -69,15 +80,15 @@ public abstract class AbstractJob {
 
     public final void run() {
         beforeRead();
-        read();
+        List<Record> records = read();
         afterRead();
 
         beforeTransform();
-        transform();
+        records = transform(records);
         afterTransform();
 
         beforeWrite();
-        write();
+        write(records);
         afterWrite();
     }
 }
