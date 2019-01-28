@@ -22,8 +22,4 @@ public class DataReader {
     public List<Record> read(){
         return reader.read();
     }
-
-    public List<Record> readList(){
-        return reader.readList();
-    }
 }
