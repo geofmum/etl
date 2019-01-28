@@ -39,12 +39,7 @@ public class CSVReaderAdapter implements ReaderAdapter{
     }
 
     @Override
-    public Record read() {
-        return null;
-    }
-
-    @Override
-    public List<Record> readList() {
+    public List<Record> read() {
         List<Record> readRecords = new ArrayList<>();
         try {
             String regex = "\\s*" + separator + "\\s*";

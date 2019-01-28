@@ -11,19 +11,15 @@ public class DataReader {
         this.reader = reader;
     }
 
-    public void open(){
+    public void open() {
         reader.open();
     }
 
-    public void close(){
+    public void close() {
         reader.close();
     }
 
-    public List<Record> read(){
+    public List<Record> read() {
         return reader.read();
-    }
-
-    public List<Record> readList(){
-        return reader.readList();
     }
 }
