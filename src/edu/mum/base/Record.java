@@ -27,4 +27,8 @@ public class Record {
         return fields.stream()
                 .anyMatch(field -> name.equals(field.getName()));
     }
+
+    public void addField(IField field) {
+        this.fields.add(field);
+    }
 }
