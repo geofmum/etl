@@ -1,16 +1,18 @@
 package edu.mum.base;
 
+import edu.mum.base.field.IField;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Record {
-    private List<Field> fields = new ArrayList<>();
+    private List<IField> fields = new ArrayList<>();
 
-    public Record(List<Field> fields) {
+    public Record(List<IField> fields) {
         this.fields = fields;
     }
 
-    public List<Field> getFields() {
+    public List<IField> getFields() {
         return fields;
     }
 

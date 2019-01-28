@@ -1,4 +1,4 @@
-package edu.mum.base;
+package edu.mum.base.field;
 
 public enum FieldType {
     STRING, DATE, NUMBER;
