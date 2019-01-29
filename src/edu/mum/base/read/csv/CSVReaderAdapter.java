@@ -3,6 +3,8 @@ package edu.mum.base.read.csv;
 import edu.mum.base.field.FieldFactory;
 import edu.mum.base.field.IField;
 import edu.mum.base.Record;
+import edu.mum.base.log.ALogger;
+import edu.mum.base.log.LoggerBuilder;
 import edu.mum.base.read.ReaderAdapter;
 
 import java.io.BufferedReader;
@@ -19,12 +21,15 @@ public class CSVReaderAdapter implements ReaderAdapter {
 
     private BufferedReader bufferedReader;
 
+    private ALogger logger;
+
     public CSVReaderAdapter() {
     }
 
     public CSVReaderAdapter(String filePath, String separator) {
         this.filePath = filePath;
         this.separator = separator;
+        logger = (new LoggerBuilder()).getLogger();
     }
 
     public void setAllowEmpty (boolean allowEmpty){
@@ -52,7 +57,7 @@ public class CSVReaderAdapter implements ReaderAdapter {
         try {
             bufferedReader = new BufferedReader(new FileReader(filePath));
         } catch (Exception ex) {
-            System.out.println(ex.getMessage());
+            logger.error(ex.getMessage());
         }
 
     }
@@ -62,7 +67,7 @@ public class CSVReaderAdapter implements ReaderAdapter {
         try {
             bufferedReader.close();
         } catch (Exception ex) {
-            System.out.println(ex.getMessage());
+            logger.error(ex.getMessage());
         }
     }
 
@@ -87,7 +92,7 @@ public class CSVReaderAdapter implements ReaderAdapter {
             }
 
         } catch (Exception ex) {
-            System.out.println(ex.getMessage());
+            logger.error(ex.getMessage());
         }
         return readRecords;
     }
