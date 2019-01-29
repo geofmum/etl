@@ -74,7 +74,6 @@ public class CSVReaderAdapter implements ReaderAdapter {
     @Override
     public List<Record> read() {
         List<Record> readRecords = new ArrayList<>();
-        logger.info("Started reading csv file..");
         try {
             String regex = "\\s*" + separator + "\\s*";
             String[] header = bufferedReader.readLine().split(regex); // Reading header
@@ -95,7 +94,6 @@ public class CSVReaderAdapter implements ReaderAdapter {
         } catch (Exception ex) {
             logger.error(ex.getMessage());
         }
-        logger.info("Read " +readRecords.size()+ " records");
         return readRecords;
     }
 
