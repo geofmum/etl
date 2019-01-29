@@ -5,21 +5,27 @@ import edu.mum.base.Record;
 import java.util.List;
 
 public class DataReader {
-    private ReaderAdapter reader;
+    private ReaderAdapter adapter;
 
-    public DataReader(ReaderAdapter reader) {
-        this.reader = reader;
+    public DataReader(){}
+
+    public DataReader(ReaderAdapter adapter) {
+        this.adapter = adapter;
+    }
+
+    public void setReadAdapter(ReaderAdapter adapter){
+        this.adapter = adapter;
     }
 
     public void open() {
-        reader.open();
+        adapter.open();
     }
 
     public void close() {
-        reader.close();
+        adapter.close();
     }
 
     public List<Record> read() {
-        return reader.read();
+        return adapter.read();
     }
 }
