@@ -2,7 +2,7 @@ package edu.mum.application;
 
 import edu.mum.Pipeline;
 import edu.mum.base.job.Job;
-import edu.mum.base.read.CSVReaderAdapter;
+import edu.mum.base.read.csv.CSVReaderAdapter;
 import edu.mum.base.read.DataReader;
 import edu.mum.base.transform.RenameFieldDecorator;
 import edu.mum.base.transform.TransformComponent;
