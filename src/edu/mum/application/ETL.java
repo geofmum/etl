@@ -9,6 +9,7 @@ import edu.mum.base.transform.TransformComponent;
 import edu.mum.base.transform.Transformer;
 import edu.mum.base.transform.computedfield.ComputedFieldDecorator;
 import edu.mum.base.write.DataWriter;
+import edu.mum.base.write.adapters.CSVWriterAdapter;
 import edu.mum.base.write.adapters.JSONWriteAdapter;
 
 import java.util.ArrayList;
@@ -24,12 +25,15 @@ public class ETL {
     public static void csvJob(Pipeline pipeline){
         DataReader reader = new DataReader(new CSVReaderAdapter("example.csv", ","));
         DataWriter writer = new DataWriter(new JSONWriteAdapter("example.json"));
+        DataWriter csvWriter=new DataWriter(new CSVWriterAdapter("output.csv", ","));
         TransformComponent transformer = new RenameFieldDecorator(new Transformer())
                 .rename("Year", "decade");
 
         TransformComponent computedFieldDecorator = new ComputedFieldDecorator(transformer)
                 .addComputedField("Computed", new ArrayList<String>() {{add("Year"); add("Flood");} });
 
-        pipeline.addJob(new Job(reader, writer, computedFieldDecorator));
+        //pipeline.addJob(new Job(reader, writer, computedFieldDecorator));
+
+        pipeline.addJob(new Job(reader, csvWriter, computedFieldDecorator));
     }
 }
