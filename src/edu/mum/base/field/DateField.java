@@ -1,5 +1,9 @@
 package edu.mum.base.field;
 
+import edu.mum.base.utils.date.DateFormat;
+import edu.mum.base.utils.date.DateFormatFactory;
+import edu.mum.base.utils.date.DateParser;
+
 import java.util.Date;
 
 public class DateField implements IField {
@@ -28,7 +32,9 @@ public class DateField implements IField {
 
     @Override
     public void setValue(Object value) {
-        // @todo figure out how to handle date parsing
-        // this.value = Date.from();
+        DateFormat dateFormat = DateFormatFactory.create(value.toString());
+        dateFormat.parser(new DateParser());
+
+        this.value = dateFormat.getParsedDate();
     }
 }
