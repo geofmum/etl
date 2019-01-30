@@ -5,3 +5,13 @@ ERROR: Transforming is done
 ERROR: Started writing data to destination...
 ERROR: Writing is done
 ERROR: Everything is done
+<<<<<<< Updated upstream
+=======
+ERROR: Started reading data...
+ERROR: Read 7 records
+ERROR: Started transforming data...
+ERROR: Transforming is done
+ERROR: Started writing data to destination...
+ERROR: Writing is done
+ERROR: Everything is done
+>>>>>>> Stashed changes

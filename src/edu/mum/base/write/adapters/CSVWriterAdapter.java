@@ -55,7 +55,6 @@ public class CSVWriterAdapter implements WriterAdapter {
             for(Record record: records){
                 String output=record.getFields().stream().map(e -> e.getValue().toString()).collect(Collectors.joining(separater));
                 writer.write(output+"\n");
-
             }
         }catch (Exception e){
             logger.error(e.getMessage());
