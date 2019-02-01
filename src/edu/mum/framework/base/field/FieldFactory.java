@@ -1,6 +1,5 @@
 package edu.mum.framework.base.field;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class FieldFactory {
     private static FieldFactory INSTANCE;
@@ -21,7 +20,7 @@ public class FieldFactory {
         if(isInteger(value)) {
             field = new IntegerField(Integer.parseInt(value), name);
         } else if(isDate(value)) {
-            field = new DateField(new Date(value), name);
+            field = new DateField(new SimpleDateFormat(value), name);
         } else {
             field = new StringField(value, name);
         }

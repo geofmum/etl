@@ -1,16 +1,12 @@
 package edu.mum.framework.base.field;
 
-import edu.mum.framework.base.utils.date.DateFormat;
-import edu.mum.framework.base.utils.date.DateFormatFactory;
-import edu.mum.framework.base.utils.date.DateParser;
-
-import java.util.Date;
+import java.text.SimpleDateFormat;
 
 public class DateField implements IField {
-    private Date value;
+    private SimpleDateFormat value;
     private String name;
 
-    public DateField(Date value, String name) {
+    public DateField(SimpleDateFormat value, String name) {
         this.value = value;
         this.name = name;
     }
@@ -32,9 +28,6 @@ public class DateField implements IField {
 
     @Override
     public void setValue(Object value) {
-        DateFormat dateFormat = DateFormatFactory.create(value.toString());
-        dateFormat.parser(new DateParser());
-
-        this.value = dateFormat.getParsedDate();
+        this.value = (SimpleDateFormat) value;
     }
 }
