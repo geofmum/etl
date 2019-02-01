@@ -17,7 +17,7 @@ public class ConsoleLogger extends ALogger {
         if(canHandleRequest()) {
             log("INFO: "+ message);
         } else if(this.getNextLogger() != null) {
-            this.getNextLogger().error(message);
+            this.getNextLogger().info(message);
         }
     }
 
@@ -26,7 +26,7 @@ public class ConsoleLogger extends ALogger {
         if(canHandleRequest()) {
             log("DEBUG: "+ message);
         } else if(this.getNextLogger() != null) {
-            this.getNextLogger().error(message);
+            this.getNextLogger().debug(message);
         }
     }
 

@@ -1,5 +1,5 @@
 package edu.mum.framework;
 
 public class Settings {
-    public final static String ENV = "production";//"development"; //
+    public static String ENV = "production";//"development"; //
 }

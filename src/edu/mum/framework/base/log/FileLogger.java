@@ -19,7 +19,7 @@ public class FileLogger extends ALogger {
         if(canHandleRequest()) {
             writeToFile("INFO: "+ message);
         } else if(this.getNextLogger() != null) {
-            this.getNextLogger().error(message);
+            this.getNextLogger().info(message);
         }
     }
 
@@ -28,7 +28,7 @@ public class FileLogger extends ALogger {
         if(canHandleRequest()) {
             writeToFile("DEBUG: "+ message);
         } else if(this.getNextLogger() != null) {
-            this.getNextLogger().error(message);
+            this.getNextLogger().debug(message);
         }
     }
 
