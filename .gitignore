@@ -58,3 +58,7 @@ modules.xml
 *.rar
 hs_err_pid*
 
+log.txt
+output.csv
+example.json
+
